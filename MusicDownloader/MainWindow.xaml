@@ -1,0 +1,43 @@
+﻿<Window x:Class="MusicDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicDownloader"
+        mc:Ignorable="d"
+        Title="Music Downloader" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Margin="0,0,2,0">
+        <TextBox x:Name="textBox" Height="23" Margin="32,27,557,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <Label x:Name="errorMessage" Content="Не удалось найти песню" Margin="249,186,0,184" FontFamily="Microsoft YaHei UI Light" FontSize="24" HorizontalAlignment="Left" Width="296" Visibility="Hidden"/>
+        <Button x:Name="button" Content="Поиск" Margin="249,27,451,0" VerticalAlignment="Top" Click="SearchButton_Click" Height="23"/>
+        <Grid x:Name="SongsBoxContainer" Margin="32,70,32,75" Button.Click="DownloadSong">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="135*"></ColumnDefinition>
+                <ColumnDefinition Width="63"></ColumnDefinition>
+                <ColumnDefinition Width="46*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <StackPanel x:Name="ProgressDownloadPanel" Margin="32,349,515,10" Visibility="Hidden">
+            <Label x:Name="ProgressLabel" Content="Скачивается " HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Height="27"/>
+            <ProgressBar x:Name="ProgressDownloadBar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="233"/>
+        </StackPanel>
+
+        <StackPanel x:Name="SwitchingButtons" Orientation="Horizontal" Margin="667,366,42,20" Visibility="Hidden">
+            <Button x:Name="LefttSwitchingButton" Content="&lt;-" Click="previousPage_click" Width="35"/>
+            <Button x:Name="RightSwitchingButton" Content="->" Click="nextPage_click" Width="35"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
